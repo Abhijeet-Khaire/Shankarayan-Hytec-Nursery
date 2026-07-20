@@ -12,7 +12,7 @@ import FloatingCall from './components/FloatingCall';
 
 export default function App() {
   const [lang, setLang] = useState(() => {
-    return localStorage.getItem('nursery_selected_lang') || 'en';
+    return localStorage.getItem('nursery_selected_lang') || 'mr';
   });
 
   useEffect(() => {
