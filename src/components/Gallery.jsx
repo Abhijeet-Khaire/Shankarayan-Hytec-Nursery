@@ -11,6 +11,11 @@ import seedlingsImg from '../assets/images/seedlings/seedlings_detail.png';
 import plantationImg from '../assets/images/plantation/papaya_plantation.png';
 import harvestImg from '../assets/images/harvest/papaya_harvest.png';
 import farmerImg from '../assets/images/nursery/farmer_visit.png';
+import seedlingRootsImg from '../assets/images/seedlings/seedling_roots.png';
+import seedlingTraysImg from '../assets/images/seedlings/seedling_trays.png';
+import seedlingBatchImg from '../assets/images/seedlings/seedling_batch.png';
+import harvestCutFruitImg from '../assets/images/harvest/harvest_cut_fruit.png';
+import nurseryLoadingImg from '../assets/images/nursery/nursery_loading.png';
 
 // Swiper styles
 import 'swiper/css';
@@ -67,6 +72,51 @@ export default function Gallery({ lang }) {
       titleMr: 'समाधानी शेतकरी भेट',
       captionEn: 'Local farmer inspecting papaya seedlings at nursery.',
       captionMr: 'नर्सरीला भेट देऊन पपईच्या रोपांची पाहणी करताना समाधानी स्थानिक शेतकरी.'
+    },
+    {
+      id: 5,
+      category: 'seedlings',
+      image: seedlingRootsImg,
+      titleEn: 'Strong Fibrous Root System',
+      titleMr: 'मजबूत मुळांची रचना',
+      captionEn: 'Well-developed roots ensuring high transplanting survival rate.',
+      captionMr: 'पुनर्लागवड झाल्यानंतर उच्च जिवंत दराची हमी देणारी मजबूत मुळे.'
+    },
+    {
+      id: 6,
+      category: 'nursery',
+      image: seedlingTraysImg,
+      titleEn: 'Automated Misting & Germination',
+      titleMr: 'ऑटोमेटेड मिस्टिंग आणि उगवण',
+      captionEn: 'Sprouts receiving fine mist spray in controlled atmosphere.',
+      captionMr: 'नियंत्रित वातावरणात सूक्ष्म पाण्याचे फवारे मिळणारी लहान रोपे.'
+    },
+    {
+      id: 7,
+      category: 'seedlings',
+      image: seedlingBatchImg,
+      titleEn: 'Batch Ready For Dispatch',
+      titleMr: 'लागवडीसाठी तयार रोपांची बॅच',
+      captionEn: 'Endless rows of uniform Original 15 No. seedlings.',
+      captionMr: 'लागवडीसाठी तयार असलेल्या एकसमान ओरिजिनल १५ नंबर रोपांची मोठी बॅच.'
+    },
+    {
+      id: 8,
+      category: 'harvest',
+      image: harvestCutFruitImg,
+      titleEn: 'Sweet & Firm Papaya Pulp',
+      titleMr: 'गोड आणि लालसर पपई गर',
+      captionEn: 'Thick pulp and sweet taste of Original 15 No. papaya.',
+      captionMr: 'ओरिजिनल १५ नंबर पपईचा गोड, दाट आणि उत्कृष्ट दर्जाचा गर.'
+    },
+    {
+      id: 9,
+      category: 'farmers',
+      image: nurseryLoadingImg,
+      titleEn: 'Seedling Dispatch To Farmers',
+      titleMr: 'शेतकऱ्यांसाठी रोपांची वाहतूक',
+      captionEn: 'Carefully packing and loading grow bags for delivery.',
+      captionMr: 'शेतकऱ्यांच्या शेतावर वितरणासाठी रोपांची काळजीपूर्वक लोड-अप प्रक्रिया.'
     }
   ];
 

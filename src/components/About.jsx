@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { FaCheckCircle } from 'react-icons/fa';
 import { translations } from '../utils/translations';
 import farmerImg from '../assets/images/nursery/farmer_visit.png';
+import loadingImg from '../assets/images/nursery/nursery_loading.png';
 
 export default function About({ lang }) {
   const t = translations[lang];
@@ -30,7 +31,7 @@ export default function About({ lang }) {
         {/* Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          {/* Left: Nursery Photo with Badge */}
+          {/* Left: Nursery Photos with Badge */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -42,10 +43,20 @@ export default function About({ lang }) {
               <img
                 src={farmerImg}
                 alt="Shankarayan Hytec Nursery Visit"
-                className="w-full h-[450px] object-cover transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-[460px] object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/40 via-transparent to-transparent" />
+            </div>
+
+            {/* Inset Secondary Dispatch Image */}
+            <div className="hidden sm:block absolute -top-6 -left-6 w-36 h-36 rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+              <img
+                src={loadingImg}
+                alt="Nursery Seedling Loading"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
             </div>
 
             {/* Floating Trust Badge */}
