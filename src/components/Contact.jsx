@@ -107,7 +107,7 @@ export default function Contact({ lang }) {
               </a>
 
               <a
-                href="https://maps.google.com/?q=Pachapimpla,+Paranda,+Dharashiv,+Maharashtra"
+                href="https://www.google.com/maps?q=18.33556,75.49085"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-sm transition-all"
@@ -128,7 +128,7 @@ export default function Contact({ lang }) {
             className="lg:col-span-7 rounded-3xl overflow-hidden shadow-xl border border-slate-100 min-h-[450px]"
           >
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3778.694676579294!2d75.44199999999999!3d18.199!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc361d15cba5bb1%3A0xbd8ef4b77f98ee09!2sPachapimpla%2C%20Maharashtra%20413502!5e0!3m2!1sen!2sin!4v1716300000000!5m2!1sen!2sin"
+              src="https://maps.google.com/maps?q=18.33556,75.49085&hl=en&z=15&output=embed"
               className="w-full h-full min-h-[450px] border-0"
               allowFullScreen=""
               loading="lazy"
