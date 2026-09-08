@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 import { FaCheckCircle } from 'react-icons/fa';
 import { translations } from '../utils/translations';
-import farmerImg from '../assets/images/nursery/farmer_visit.png';
-import loadingImg from '../assets/images/nursery/nursery_loading.png';
+import farmerImg from '../assets/images/nursery/farmers_inspecting_4k.jpg';
+import loadingImg from '../assets/images/nursery/nursery_loading.jpg';
 
 export default function About({ lang }) {
   const t = translations[lang];
@@ -15,12 +15,15 @@ export default function About({ lang }) {
   ];
 
   return (
-    <section id="about" className="py-24 bg-white relative">
+    <section id="about" className="py-28 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#2E7D32] font-poppins relative inline-block pb-3 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-[#2E7D32] after:rounded-full">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[#2E7D32] text-xs font-bold uppercase tracking-wider shadow-sm">
+            <span>{lang === 'mr' ? 'विश्वासार्ह गुणवत्ता' : 'Trusted Excellence'}</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-poppins">
             {t['about-title']}
           </h2>
           <p className="text-slate-600 text-base sm:text-lg">
@@ -31,7 +34,7 @@ export default function About({ lang }) {
         {/* Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          {/* Left: Nursery Photos with Badge */}
+          {/* Left: Nursery Photos with Glass Badge */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -39,40 +42,44 @@ export default function About({ lang }) {
             transition={{ duration: 0.7 }}
             className="lg:col-span-5 relative group"
           >
-            <div className="relative rounded-3xl overflow-hidden shadow-xl border-4 border-emerald-50">
-              <img
-                src={farmerImg}
-                alt="Shankarayan Hytec Nursery Visit"
-                className="w-full h-[460px] object-cover transition-transform duration-700 group-hover:scale-105"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/40 via-transparent to-transparent" />
+            <div className="glass-panel p-2.5 rounded-[36px] overflow-hidden shadow-2xl border border-white/90">
+              <div className="relative rounded-[28px] overflow-hidden">
+                <img
+                  src={farmerImg}
+                  alt="Shankarayan Hytec Nursery Visit"
+                  className="w-full h-[460px] object-cover transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/40 via-transparent to-transparent" />
+              </div>
             </div>
 
-            {/* Inset Secondary Dispatch Image */}
-            <div className="hidden sm:block absolute -top-6 -left-6 w-36 h-36 rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+            {/* Inset Secondary Dispatch Image in Glass Frame */}
+            <div className="hidden sm:block absolute -top-6 -left-6 w-36 h-36 glass-panel p-1.5 rounded-2xl overflow-hidden shadow-2xl border border-white/90">
               <img
                 src={loadingImg}
                 alt="Nursery Seedling Loading"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover rounded-xl"
                 loading="lazy"
+                decoding="async"
               />
             </div>
 
-            {/* Floating Trust Badge */}
-            <div className="absolute -bottom-6 -right-6 sm:bottom-6 sm:right-6 bg-[#2E7D32] text-white p-5 rounded-2xl shadow-xl text-center border-2 border-white">
+            {/* Floating VisionOS Glass Badge */}
+            <div className="absolute -bottom-6 -right-6 sm:bottom-6 sm:right-6 glass-panel bg-gradient-to-br from-[#2E7D32]/90 to-emerald-900/90 backdrop-blur-2xl text-white p-5 sm:p-6 rounded-3xl shadow-2xl text-center border border-white/40">
               <span className="block text-3xl font-black font-poppins">{t['about-exp-years']}</span>
-              <span className="text-xs uppercase tracking-wider font-semibold opacity-90">{t['about-exp-label']}</span>
+              <span className="text-[11px] uppercase tracking-wider font-bold opacity-90">{t['about-exp-label']}</span>
             </div>
           </motion.div>
 
-          {/* Right: Text Information */}
+          {/* Right: Glass Card with Information */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-7 space-y-6"
+            className="lg:col-span-7 glass-panel rounded-[36px] p-8 sm:p-10 border border-white/85 shadow-xl space-y-6"
           >
             <h3 className="text-2xl sm:text-3xl font-bold text-slate-800 font-poppins leading-snug">
               {t['about-text-heading']}
@@ -86,12 +93,17 @@ export default function About({ lang }) {
               {t['about-text-p2']}
             </p>
 
-            {/* Highlights Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+            {/* Highlights iOS Interactive Chips */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
               {highlights.map((item, index) => (
-                <div key={index} className="flex items-center gap-3 p-3 bg-emerald-50/60 rounded-xl border border-emerald-100">
-                  <FaCheckCircle className="w-5 h-5 text-[#2E7D32] shrink-0" />
-                  <span className="font-semibold text-slate-800 text-sm">{item}</span>
+                <div 
+                  key={index} 
+                  className="glass-card-interactive p-3.5 rounded-2xl border border-white/80 flex items-center gap-3 bg-white/60 hover:bg-white/90"
+                >
+                  <div className="w-7 h-7 rounded-full bg-emerald-500/15 text-[#2E7D32] flex items-center justify-center shrink-0 border border-emerald-500/20">
+                    <FaCheckCircle className="w-4 h-4" />
+                  </div>
+                  <span className="font-semibold text-slate-800 text-xs sm:text-sm">{item}</span>
                 </div>
               ))}
             </div>

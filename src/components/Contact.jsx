@@ -9,12 +9,15 @@ export default function Contact({ lang }) {
   const whatsappUrl = `https://wa.me/919657523258?text=${whatsappMessage}`;
 
   return (
-    <section id="contact" className="py-24 bg-white relative">
+    <section id="contact" className="py-28 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#2E7D32] font-poppins relative inline-block pb-3 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-[#2E7D32] after:rounded-full">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[#2E7D32] text-xs font-bold uppercase tracking-wider shadow-sm">
+            <span>{lang === 'mr' ? 'थेट संपर्क व पत्ता' : 'Direct Contact & Route'}</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-poppins">
             {t['contact-title']}
           </h2>
           <p className="text-slate-600 text-base sm:text-lg">
@@ -25,27 +28,27 @@ export default function Contact({ lang }) {
         {/* Grid Container */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
           
-          {/* Left: Contact Details Card */}
+          {/* Left: Contact Details Card - iOS 26 Glass Pod */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-5 bg-white p-8 sm:p-10 rounded-3xl shadow-xl border border-slate-100 flex flex-col justify-between"
+            className="lg:col-span-5 glass-panel p-8 sm:p-10 rounded-[36px] shadow-2xl border border-white/85 flex flex-col justify-between backdrop-blur-3xl bg-white/75"
           >
             <div>
-              <h3 className="text-2xl font-bold font-poppins text-slate-800 mb-8 pb-4 border-b border-slate-100">
+              <h3 className="text-2xl font-bold font-poppins text-slate-800 mb-8 pb-4 border-b border-slate-200/50">
                 {t['contact-card-heading']}
               </h3>
 
               <div className="space-y-6">
                 {/* Address */}
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-2xl bg-amber-50 text-[#8D6E63] flex items-center justify-center shrink-0 shadow-sm">
+                  <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-[#2E7D32] flex items-center justify-center shrink-0 shadow-inner">
                     <FaMapMarkerAlt className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="block text-xs font-bold text-[#8D6E63] uppercase tracking-wider mb-1">
+                    <span className="block text-xs font-bold text-emerald-800 uppercase tracking-wider mb-1">
                       {t['contact-lbl-address']}
                     </span>
                     <p className="text-slate-700 text-sm font-medium leading-relaxed">
@@ -56,14 +59,14 @@ export default function Contact({ lang }) {
 
                 {/* Phone */}
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-2xl bg-amber-50 text-[#8D6E63] flex items-center justify-center shrink-0 shadow-sm">
+                  <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-[#2E7D32] flex items-center justify-center shrink-0 shadow-inner">
                     <FaPhoneAlt className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="block text-xs font-bold text-[#8D6E63] uppercase tracking-wider mb-1">
+                    <span className="block text-xs font-bold text-emerald-800 uppercase tracking-wider mb-1">
                       {t['contact-lbl-phone']}
                     </span>
-                    <a href="tel:+919657523258" className="text-slate-800 text-base font-semibold hover:text-[#2E7D32] transition-colors">
+                    <a href="tel:+919657523258" className="text-slate-900 text-base font-bold hover:text-[#2E7D32] transition-colors">
                       +91 9657523258
                     </a>
                   </div>
@@ -71,11 +74,11 @@ export default function Contact({ lang }) {
 
                 {/* Hours */}
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-2xl bg-amber-50 text-[#8D6E63] flex items-center justify-center shrink-0 shadow-sm">
+                  <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-[#2E7D32] flex items-center justify-center shrink-0 shadow-inner">
                     <FaClock className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="block text-xs font-bold text-[#8D6E63] uppercase tracking-wider mb-1">
+                    <span className="block text-xs font-bold text-emerald-800 uppercase tracking-wider mb-1">
                       {t['contact-lbl-hours']}
                     </span>
                     <p className="text-slate-700 text-sm font-medium">
@@ -87,10 +90,10 @@ export default function Contact({ lang }) {
             </div>
 
             {/* CTAs */}
-            <div className="space-y-3 pt-8 mt-8 border-t border-slate-100">
+            <div className="space-y-3 pt-8 mt-8 border-t border-slate-200/50">
               <a
                 href="tel:+919657523258"
-                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#2E7D32] hover:bg-[#8D6E63] text-white font-bold text-sm transition-all shadow-md"
+                className="glass-btn-primary w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full text-white font-bold text-sm shadow-md"
               >
                 <FaPhoneAlt />
                 <span>{t['contact-btn-call']}</span>
@@ -100,7 +103,7 @@ export default function Contact({ lang }) {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#25D366] hover:bg-emerald-600 text-white font-bold text-sm transition-all shadow-md"
+                className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-full bg-gradient-to-r from-[#25D366] to-[#128C7E] hover:from-[#20bd5a] hover:to-[#0f7a6e] text-white font-black text-sm transition-all shadow-[0_12px_28px_rgba(37,211,102,0.35)] hover:-translate-y-0.5 active:scale-95"
               >
                 <FaWhatsapp className="w-5 h-5" />
                 <span>{t['contact-btn-whatsapp']}</span>
@@ -110,26 +113,26 @@ export default function Contact({ lang }) {
                 href="https://www.google.com/maps?q=18.33556,75.49085"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-sm transition-all"
+                className="glass-btn-secondary w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full text-slate-800 font-bold text-sm border border-white/80"
               >
-                <FaDirections />
+                <FaDirections className="text-[#2E7D32]" />
                 <span>{t['contact-btn-directions']}</span>
               </a>
             </div>
 
           </motion.div>
 
-          {/* Right: Embedded Google Map Viewport */}
+          {/* Right: Embedded Google Map Viewport with Glass Frame */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-7 rounded-3xl overflow-hidden shadow-xl border border-slate-100 min-h-[450px]"
+            className="lg:col-span-7 glass-panel p-2.5 rounded-[36px] overflow-hidden shadow-2xl border border-white/85 min-h-[450px]"
           >
             <iframe
               src="https://maps.google.com/maps?q=18.33556,75.49085&hl=en&z=15&output=embed"
-              className="w-full h-full min-h-[450px] border-0"
+              className="w-full h-full min-h-[450px] rounded-[28px] border-0"
               allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

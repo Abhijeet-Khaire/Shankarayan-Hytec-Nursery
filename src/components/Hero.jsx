@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, EffectFade } from 'swiper/modules';
-import { FaWhatsapp, FaArrowRight } from 'react-icons/fa';
+import { FaWhatsapp, FaArrowRight, FaSeedling } from 'react-icons/fa';
 import { translations } from '../utils/translations';
 
 // Swiper styles
@@ -10,10 +10,10 @@ import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 
 // Image imports
-import heroBg from '../assets/images/hero/hero_nursery.png';
-import seedlingsBg from '../assets/images/seedlings/seedlings_detail.png';
-import plantationBg from '../assets/images/plantation/papaya_plantation.png';
-import harvestBg from '../assets/images/harvest/papaya_harvest.png';
+import heroBg from '../assets/images/hero/hero_nursery.jpg';
+import seedlingsBg from '../assets/images/nursery/seedlings_nursery_4k.jpg';
+import plantationBg from '../assets/images/plantation/plantation_4k.jpg';
+import harvestBg from '../assets/images/harvest/harvest_4k.jpg';
 
 export default function Hero({ lang }) {
   const t = translations[lang];
@@ -41,12 +41,17 @@ export default function Hero({ lang }) {
           loop={true}
           className="h-full w-full"
         >
-          {slides.map((slide) => (
+          {slides.map((slide, idx) => (
             <SwiperSlide key={slide.id}>
-              <div
-                className="w-full h-full bg-cover bg-center relative"
-                style={{ backgroundImage: `url(${slide.image})` }}
-              >
+              <div className="w-full h-full relative overflow-hidden">
+                <img
+                  src={slide.image}
+                  alt="Shankarayan Hytec Papaya Nursery"
+                  className="w-full h-full object-cover"
+                  loading={idx === 0 ? "eager" : "lazy"}
+                  fetchpriority={idx === 0 ? "high" : "auto"}
+                  decoding={idx === 0 ? "sync" : "async"}
+                />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/60 to-black/70" />
               </div>
             </SwiperSlide>
@@ -54,48 +59,56 @@ export default function Hero({ lang }) {
         </Swiper>
       </div>
 
-      {/* Hero Text Content Container */}
-      <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
+      {/* Hero Text Content Container - iOS 26 Frosted Glass Pod */}
+      <div className="relative z-10 max-w-4xl mx-auto px-4 py-8">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="space-y-6"
+          initial={{ opacity: 0, scale: 0.94, y: 25 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="p-8 sm:p-12 rounded-[36px] bg-black/35 backdrop-blur-2xl border border-white/30 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)] text-center space-y-6 relative overflow-hidden"
         >
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight font-poppins drop-shadow-md text-white">
+          {/* Subtle iOS Top Edge Specular Reflection */}
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/80 to-transparent pointer-events-none" />
+
+          {/* iOS 26 Live Indicator Pill */}
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-xl border border-white/30 text-white text-xs font-semibold shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+            <span className="w-2 h-2 rounded-full bg-emerald-400 -ml-4" />
+            <span>{lang === 'mr' ? 'सीझन २०२६ अग्रिम नोंदणी सुरू' : 'Season 2026 Advance Bookings Open'}</span>
+          </div>
+
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight font-poppins text-white leading-tight drop-shadow-md">
             {t['hero-title']}
           </h1>
 
-          <p className="text-xl sm:text-2xl font-medium text-[#81C784] drop-shadow">
+          <p className="text-lg sm:text-2xl font-semibold text-emerald-300 drop-shadow">
             {t['hero-subtitle']}
           </p>
 
-          <div className="flex flex-wrap justify-center gap-3 py-2">
-            <span className="bg-white/15 backdrop-blur-md border border-white/25 px-4 py-1.5 rounded-full text-sm font-medium">
+          <div className="flex flex-wrap justify-center gap-2.5 py-1">
+            <span className="bg-white/15 hover:bg-white/25 backdrop-blur-xl border border-white/30 px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-white transition-all shadow-sm">
               {t['hero-tag-1']}
             </span>
-            <span className="bg-white/15 backdrop-blur-md border border-white/25 px-4 py-1.5 rounded-full text-sm font-medium">
+            <span className="bg-white/15 hover:bg-white/25 backdrop-blur-xl border border-white/30 px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-white transition-all shadow-sm">
               {t['hero-tag-2']}
             </span>
-            <span className="bg-white/15 backdrop-blur-md border border-white/25 px-4 py-1.5 rounded-full text-sm font-medium">
+            <span className="bg-white/15 hover:bg-white/25 backdrop-blur-xl border border-white/30 px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-white transition-all shadow-sm">
               {t['hero-tag-3']}
             </span>
           </div>
 
-          <div className="flex flex-wrap justify-center items-center gap-4 pt-4">
+          <div className="flex flex-wrap justify-center items-center gap-4 pt-2">
             <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-[#2E7D32] hover:bg-[#8D6E63] text-white font-semibold text-base transition-all duration-300 shadow-lg hover:-translate-y-0.5"
+              href="#book"
+              className="glass-btn-primary inline-flex items-center gap-2.5 px-8 py-4 rounded-full text-white font-extrabold text-sm sm:text-base tracking-wide shadow-xl hover:-translate-y-0.5"
             >
-              <FaWhatsapp className="w-5 h-5 text-emerald-300" />
+              <FaSeedling className="w-5 h-5 text-emerald-200" />
               <span>{t['hero-btn-book']}</span>
             </a>
 
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/20 border-2 border-white text-white font-semibold text-base backdrop-blur-sm transition-all duration-300 shadow-md hover:-translate-y-0.5"
+              className="glass-btn-secondary inline-flex items-center gap-2 px-7 py-4 rounded-full bg-white/20 hover:bg-white/30 border border-white/50 text-white font-bold text-sm sm:text-base backdrop-blur-xl shadow-lg hover:-translate-y-0.5"
             >
               <span>{t['hero-btn-contact']}</span>
               <FaArrowRight className="w-4 h-4" />
