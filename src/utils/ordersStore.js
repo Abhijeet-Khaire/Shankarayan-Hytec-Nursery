@@ -1,4 +1,6 @@
 // Order Management Store & Persistence for Shankarayan Hytec Nursery
+import { db } from '../firebase';
+import { doc, setDoc, updateDoc, deleteDoc } from 'firebase/firestore';
 
 const STORAGE_KEY = 'shn_farmer_bookings';
 const PIN_KEY = 'shn_admin_pin';
@@ -185,6 +187,18 @@ export function saveOrder(orderData) {
   } catch (err) {
     console.error('Failed to save order to localStorage', err);
   }
+
+  // Cloud Firestore Sync
+  try {
+    if (db) {
+      setDoc(doc(db, 'orders', newOrder.id), newOrder).catch((e) => {
+        console.warn('Firestore sync note:', e.message);
+      });
+    }
+  } catch (e) {
+    // Ignore offline errors gracefully
+  }
+
   return newOrder;
 }
 
@@ -208,6 +222,18 @@ export function updateOrder(orderId, updates) {
   } catch (err) {
     console.error('Failed to update order', err);
   }
+
+  // Cloud Firestore Sync
+  try {
+    if (db) {
+      updateDoc(doc(db, 'orders', orderId), updates).catch((e) => {
+        console.warn('Firestore update note:', e.message);
+      });
+    }
+  } catch (e) {
+    // Ignore offline errors gracefully
+  }
+
   return updated;
 }
 
@@ -221,6 +247,18 @@ export function deleteOrder(orderId) {
   } catch (err) {
     console.error('Failed to delete order', err);
   }
+
+  // Cloud Firestore Sync
+  try {
+    if (db) {
+      deleteDoc(doc(db, 'orders', orderId)).catch((e) => {
+        console.warn('Firestore delete note:', e.message);
+      });
+    }
+  } catch (e) {
+    // Ignore offline errors gracefully
+  }
+
   return filtered;
 }
 
